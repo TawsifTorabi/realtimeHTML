@@ -1,0 +1,142 @@
+<html>
+<head>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+
+<div class="header">
+			<div class="toplinkscontainer">
+					<button style="outline: none; border-radius: 8px; height: 24px; background-color: Yellow; color: Black; border: none;" onclick="hide()"><span id="hideshownotifier">Hide Editor</span></button>
+					<a href="" style="outline: none; border-radius: 8px; height: 24px;background-color: green;color: white;border: none;padding: 4px 7px;font-family: arial;text-decoration: none;font-weight: bold;word-spacing: -1px;" id="a" download="new.html">Save HTML</a>
+					<button style="outline: none; border-radius: 8px; height: 24px; background-color: orangered; color: white; border: none;" onclick="reset( );">Clear All</button>
+					<button style="outline: none; border-radius: 8px; height: 24px; background-color: red; color: white; font-weight: bold; border: none;" onclick="location = location;">Refresh All</button>
+                    <input type="color" style="height: 24px;" value="#000000" onchange="bgcolor(this.value);"/>
+                    <input type="color" style="height: 24px;" value="#32CD32" onchange="txtcolor(this.value);"/>
+					<select style="height: 24px;" onchange="font(this.value)">
+						<option value="Arial">Arial</option>
+						<option value="Times New Roman">Times New Roman</option>
+						<option value="Agency FB">Agency FB</option>
+						<option value="Calibri">Calibri</option>
+						<option value="Courier">Courier</option>
+						<option value="System">System</option>
+						<option value="Tahoma">Tahoma</option>
+					</select>					
+					
+					<select style="height: 24px;" onchange="fontsize(this.value)">
+						<option value="14px">14</option>
+						<option value="16px">16</option>
+						<option value="18px">18</option>
+						<option value="21px">21</option>
+						<option value="24px">24</option>
+					</select>
+					<button style="outline: none; border-radius: 8px; height: 24px; background-color: orangered; color: white; border: none;" onclick="showhelp();">About</button>
+				</div>
+
+</div>
+</br>
+</br>
+</br>
+
+<textarea placeholder="Start Writing Your HTML Code here..." style="display: inline;width: 100%;height: 250px;color: #32CD32;background-color: black;" id="codewriter" onkeyup="compile(); var htmlcodes = document.getElementById('codewriter').value; download(htmlcodes, 'new.html', 'text/html')"><html>  
+<head> 
+<title>Real Time HTML Editor</title> 
+</head> 
+<h3>Welcome to the real-time HTML editor!</h3> 
+<p>Type HTML in the textarea above, and it will magically appear in the frame below.</p> 
+</html>
+</textarea>
+</br>
+<hr width="100%">
+<script>
+function compile(){
+	document.getElementById('resultcont').innerHTML = document.getElementById('codewriter').value;
+}
+
+function reset(){
+	document.getElementById('resultcont').innerHTML = ''; 
+	document.getElementById('codewriter').value = '';
+}
+
+function font(name){
+	document.getElementById('codewriter').style.fontFamily = name;
+}
+function fontsize(size){
+	document.getElementById('codewriter').style.fontSize = size;
+}
+function  bgcolor(color){
+	document.getElementById('codewriter').style.backgroundColor = color;
+}
+function  txtcolor(color){
+	document.getElementById('codewriter').style.color = color;
+}
+
+function download(text, name, type) {
+  var a = document.getElementById("a");
+  var file = new Blob([text], {type: type});
+  a.href = URL.createObjectURL(file);
+  a.download = name;
+}
+
+function hide(){
+    if(document.getElementById('codewriter').style.display == "inline"){
+		document.getElementById('codewriter').style.display = "none";
+		document.getElementById('hideshownotifier').innerHTML = "Show Editor";
+		}
+		
+		else{
+			document.getElementById('codewriter').style.display = "inline";
+			document.getElementById('hideshownotifier').innerHTML = "Hide Editor";		}
+};
+			//show and hide help
+			function showhelp(){
+				var doc = document.getElementById('helpdata');
+				var show = ('display:inline;');
+				doc.style = show;
+
+			}	
+			function hidehelp(){
+				var doc = document.getElementById('helpdata');
+				var hide = ('display:none;');
+				doc.style = hide;
+			}
+			//show and hide help end
+				
+</script>
+<div id="resultcont">
+	<html> 
+	<head> 
+	<title>Real Time HTML Editor</title> 
+	</head> 
+	<h3>Welcome to the real-time HTML editor!</h3> 
+	<p>Type HTML in the textarea above, and it will magically appear in the frame below.</p> 
+	</html>
+</div>
+
+	<div id="helpdata" style="display:none;">
+	<div class="orthi-textlightbox-background fade-in">
+		<div class="orthi-textlightbox-area fade-in">
+			<button class="orthi-textlightbox-area-close" onclick="hidehelp()">x</button>
+			<center>
+				<h2 class="orthi-h2">
+					Real Time HTML Editor
+				</h2>
+					It is a javascript based real time HTML interpreter for beginners.
+			</center>
+			</br>
+			</br>
+			<center>
+			<a class="about-button" href="https://facebook.com/tawsif.torabi" target="_blank" style="padding: 5px 10px; text-decoration:none;">Me on Facebook</a>
+			</br></br>
+			<a class="about-button" href="https://github.com/TawsifTorabi/realtimeHTML" target="_blank" style="padding: 5px 10px; text-decoration:none;">Code On Github</a></br></br>
+			</center>
+				</br>
+
+			</div>
+		</div>
+	</div>
+
+
+
+
+</body>
+</html>
