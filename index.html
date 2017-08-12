@@ -38,11 +38,14 @@
 </br>
 
 <textarea placeholder="Start Writing Your HTML Code here..." style="display: inline;width: 100%;height: 250px;color: #32CD32;background-color: black;" id="codewriter" onkeyup="compile(); var htmlcodes = document.getElementById('codewriter').value; download(htmlcodes, 'new.html', 'text/html')"><html>  
+<html>  
 <head> 
 <title>Real Time HTML Editor</title> 
-</head> 
+</head>
+<body>
 <h3>Welcome to the real-time HTML editor!</h3> 
 <p>Type HTML in the textarea above, and it will magically appear in the frame below.</p> 
+</body>
 </html>
 </textarea>
 </br>
@@ -103,12 +106,14 @@ function hide(){
 				
 </script>
 <div id="resultcont">
-	<html> 
+	<html>  
 	<head> 
 	<title>Real Time HTML Editor</title> 
-	</head> 
+	</head>
+	<body>
 	<h3>Welcome to the real-time HTML editor!</h3> 
 	<p>Type HTML in the textarea above, and it will magically appear in the frame below.</p> 
+	</body>
 	</html>
 </div>
 
