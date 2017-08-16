@@ -1,6 +1,7 @@
 <html>
 <head>
 <link href="style.css" rel="stylesheet" type="text/css"/>
+<title>Real Time html Editor</title>
 </head>
 <body>
 
@@ -37,7 +38,7 @@
 </br>
 </br>
 
-<textarea placeholder="Start Writing Your HTML Code here..." style="display: inline;width: 100%;height: 250px;color: #32CD32;background-color: black;" id="codewriter" onkeyup="compile(); var htmlcodes = document.getElementById('codewriter').value; download(htmlcodes, 'new.html', 'text/html')"><html>  
+<textarea placeholder="Start Writing Your HTML Code here..." style="display: inline;width: 100%;height: 250px;color: #32CD32;background-color: black;" id="codewriter" onkeyup="compile(); var htmlcodes = document.getElementById('codewriter').value; download(htmlcodes, 'new.html', 'text/html'); extractTitle();"><html>  
 <html>  
 <head> 
 <title>Real Time HTML Editor</title> 
@@ -52,7 +53,15 @@
 <hr width="100%">
 <script>
 function compile(){
-	document.getElementById('resultcont').innerHTML = document.getElementById('codewriter').value;
+	document.getElementById('resultcont').srcdoc = document.getElementById('codewriter').value;
+}
+
+function extractTitle(){
+
+var iFrame = document.getElementById('resultcont'), iFrameDoc = iFrame.contentWindow.document || iFrame.contentDocument;
+
+document.title = iFrameDoc.title;
+
 }
 
 function reset(){
@@ -105,17 +114,17 @@ function hide(){
 			//show and hide help end
 				
 </script>
-<div id="resultcont">
-	<html>  
-	<head> 
-	<title>Real Time HTML Editor</title> 
-	</head>
-	<body>
-	<h3>Welcome to the real-time HTML editor!</h3> 
-	<p>Type HTML in the textarea above, and it will magically appear in the frame below.</p> 
-	</body>
-	</html>
-</div>
+	<iframe style="height: 100%; width: 100%;" id="resultcont" 
+	srcdoc="<html>  
+					<head> 
+					<title>Real Time HTML Editor</title> 
+					</head>
+					<body>
+					<h3>Welcome to the real-time HTML editor!</h3> 
+					<p>Type HTML in the textarea above, and it will magically appear in the frame below.</p> 
+					</body>
+					</html>">
+	</iframe>
 
 	<div id="helpdata" style="display:none;">
 	<div class="orthi-textlightbox-background fade-in">
