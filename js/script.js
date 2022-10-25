@@ -34,11 +34,13 @@ function SetVertical(){
 	editor.style.display = 'inline-block';
 	editor.style.height = '548px';
 	editor.style.maxHeight = '548px';
+	editor.style.maxWidth = '95%';
 	
 	result.style.width = '48%';
 	result.style.display = 'inline-block';
 	result.style.height = '550px';
 	result.style.maxHeight = '550px';
+	result.style.maxWidth = '95%';
 	
 	//document.getElementById('resizerContainer').innerHTML = '<hr id="dividerDrag" class="dividerHorizontal"/>';
 }
@@ -57,11 +59,13 @@ function SetHorizontal(){
 	editor.style.display = 'inline';
 	editor.style.height = '242px';
 	editor.style.maxHeight = '500px';
+	editor.style.maxWidth = '100%';
 	
 	result.style.width = '100%';
 	result.style.display = 'inline';
 	result.style.height = '280px';
 	result.style.maxHeight = '500px';
+	result.style.maxWidth = '100%';
 	
 	//document.getElementById('resizerContainer').innerHTML = '<hr id="dividerDrag" class="dividerHorizontal"/>';
 }
