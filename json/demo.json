@@ -5,9 +5,33 @@
   "file": "class_timetable.html"
  },
  {
-  "name": "Employe List",
+  "name": "Employee List",
   "author": "irfan7o",
   "file": "employe_list.html"
+ }, 
+ {
+  "name": "A List of Table Tags",
+  "author": "Hillary Nyakundi",
+  "file": "All_Table_Tags.html"
+ }, 
+ {
+  "name": "Multiple Elements in Table",
+  "author": "w3Schools",
+  "file": "Elements_inside_Table.html"
+ },
+ {
+  "name": "Table Cell Padding",
+  "author": "w3Schools",
+  "file": "table_cellpadding.html"
+ },
+ {
+  "name": "Flexbox Webpage",
+  "author": "w3Schools",
+  "file": "Flexbox.html"
+ },  {
+  "name": "Datetime Input",
+  "author": "w3Schools",
+  "file": "datetime.html"
  }, 
  {
   "name": "Invoice Table",
