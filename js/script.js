@@ -1,8 +1,3 @@
-//CHECK AUTOSAVE
-//CREATE SETTINGS WINDOW
-//COPY & PASTE
-//Add confirmation dialogue to clear text area
-
 //Set Vertical Orientation
 function SetVertical(){
 	document.getElementById('dividerDrag').remove();
