@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link href="style.css" rel="stylesheet" type="text/css"/>
-	<link rel="stylesheet" href="css/fontawesome-free-6.2.0-web/css/all.min.css"/>
+	<link href="css/style.css" rel="stylesheet" type="text/css"/>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 	<link rel="stylesheet" type="text/css" href="css/aurna-lightbox.css"/>
 	<title>Real Time html Editor</title>
+	<meta charset="utf-8">
 </head>
 <body>
 
@@ -12,14 +13,14 @@
 	<span class="headerText">RealTime HTML</span>			
 	<a href="https://tawsiftorabi.github.io"><small class="headerTextSmall">by Tawsif Torabi</small></a>
 	<div class="toplinkscontainer">
-		<button class="buttonSt" onclick="hide()">
+		<button class="buttonSt" onclick="hide()" title="Show or Hide Editor Area">
 			<span id="hideshownotifier"><i class="fa-solid fa-pen-to-square"></i></span>
 		</button>
-		<button class="buttonSt" onclick="reset();"><i class="fa-solid fa-trash-can-arrow-up"></i></button>
-		<button class="buttonSt" onclick="SwitchArrangement();" id="arrangeBtn"><i class="fa-solid fa-grip-vertical"></i></button>
-		<input class="buttonSt" style="height: 32px;" type="color" value="#FCED98" onchange="bgcolor(this.value);"/>
-		<input class="buttonSt" style="height: 32px;" type="color" value="#804000" onchange="txtcolor(this.value);"/>
-		<select class="buttonSt" onchange="font(this.value)">
+		<button class="buttonSt" onclick="reset();" title="Clear Editor Area"><i class="fa-solid fa-trash-can-arrow-up"></i></button>
+		<button class="buttonSt" onclick="SwitchArrangement();" title="Toggle Vertical & Horizontal Panels" id="arrangeBtn"><i class="fa-solid fa-grip-vertical"></i></button>
+		<input class="buttonSt" style="height: 32px;" type="color" value="#FCED98" title="Change Background Color" onchange="bgcolor(this.value);"/>
+		<input class="buttonSt" style="height: 32px;" type="color" value="#804000" title="Change Text Color" onchange="txtcolor(this.value);"/>
+		<select class="buttonSt" title="Change Text Font" onchange="font(this.value)">
 			<option value="Courier">Courier</option>
 			<option value="Arial">Arial</option>
 			<option value="Times New Roman">Times New Roman</option>
@@ -29,34 +30,27 @@
 			<option value="Tahoma">Tahoma</option>
 		</select>					
 		
-		<select class="buttonSt" onchange="fontsize(this.value)">
+		<select class="buttonSt" title="Change Text Size" onchange="fontsize(this.value)">
 			<option value="14px">14</option>
 			<option value="16px">16</option>
 			<option value="18px">18</option>
 			<option value="21px">21</option>
 			<option value="24px">24</option>
 		</select>
-		<button class="buttonSt" onclick="aurnaIframe('help.html');"><i class="fa-solid fa-gear"></i></button>
+		<button class="buttonSt" title="Settings" onclick="aurnaIframe('settings.html');"><i class="fa-solid fa-gear"></i></button>
 	</div>
 </div>
 
 <div class="footer">
+	<span id="notificationArea"><i class="fa-regular fa-flag"></i> <span id="notificationText">Hello Hello Jonogon!</span></span>
 	<div class="bottomlinkscontainer">
 		<span class="Stats">
 			<i class="fa-solid fa-list"></i> <span id="linecount"></span> | <i class="fa-solid fa-database"></i> <span id="datasize"></span>
 		</span>
-		<button class="buttonStBott" id="downloadBtn" onclick="downloadFile();"><i class="fa-solid fa-download"></i> Download</button>		
-
-		<select class="buttonStBott" onchange="font(this.value)">
-			<option value="Courier">Courier</option>
-			<option value="Arial">Arial</option>
-			<option value="Times New Roman">Times New Roman</option>
-			<option value="Agency FB">Agency FB</option>
-			<option value="Calibri">Calibri</option>
-			<option value="System">System</option>
-			<option value="Tahoma">Tahoma</option>
-		</select>					
-
+		<button class="buttonStBott" id="downloadBtn" title="Download As HTML File" onclick="downloadFile();"><i class="fa-solid fa-download"></i> Download</button>
+		<select class="buttonStBott" id="demos" title="Load a Demonstration" onchange="loadDemo(this.value)">
+			<option value='sample.html'>Load A Sample File</option>
+		</select>
 		<button class="buttonStBott" onclick="aurnaIframe('about.html');"><i class="fa-solid fa-address-card"></i> About</button>
 	</div>
 </div>
@@ -65,24 +59,25 @@
 </br>
 
 <textarea 
-	spellcheck="false"
 	placeholder="Start Writing Your HTML Code here..." 
 	style="
 			font-family: courier; 
 			font-size: 14px; 
 			display: inline-block; 
-			width: 47%; 
-			height: 548px; 
+			width: 99.49%; 
+			height: 255px; 
 			color: rgb(128, 64, 0); 
 			background-color: rgb(252, 237, 152); 
 			resize: none; 
 			margin-right: 5px;
-			min-width: 10px;			
+			min-width: 11px;			
 			min-height: 10px; 
 			max-height: 500px;
-			max-width: 97%;" 
+			max-width: 97%;
+" 
 	id="codewriter" 
-	onkeyup="compile();">
+	onkeyup="compile();"
+	spellcheck="false">
 <html>  
 <head> 
 <title>Real Time HTML Editor</title> 
@@ -95,13 +90,14 @@
 	</textarea>
 	<span id="resizerContainer"><hr id="dividerDrag" class="dividerHorizontal"/></span>
 	<iframe style="
+	display: inline-block;
 	height: 271px; 
 	width: 100%; 
 	min-height: 10px; 
-	min-width: 10px; 
-	margin-left: 5px; 
+	min-width: 11px; 
+	margin-left: 0px; 
 	max-height: 550px;
-	max-width: 97%;" 
+	max-width: 100%;" 
 	id="resultcont" srcdoc=""></iframe>
 	<script src="js/script.js"></script>
 	<script>
