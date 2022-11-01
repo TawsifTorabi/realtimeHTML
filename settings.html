@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="css/style.css" rel="stylesheet" type="text/css"/>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<meta charset="utf-8">
+</head>
+<body>
+<center>
+	<span style="color: black; font-family: courier; font-size: 25px; font-weight: bold;">RealTime HTML</span>			
+	<a style="color: black; text-decoration: none; font-weight: bold;" target="_blank" href="https://tawsiftorabi.github.io"><small>by Tawsif Torabi</small></a>
+</center>
+</br>
+<div style="margin-left: 10%; margin-right: 10%;">
+        <h4>User Settings: </h4>
+        <table>
+		<tr style='line-height: 8px;'>
+			<td style='padding:5px'>
+				<b></b>
+			</td>
+			<td style='text-align: center; width: 180px;'></td>
+        </tr>
+        <tr style='line-height: 14px;border-bottom: 1pt dotted red;'>
+			<td style='padding:5px'>Enable Autosave: </td>
+			<td style='text-align: center; width: 180px;'>
+				<input type='radio' name='autosaveSwt' value='yes'/> Yes  
+				<input type='radio' name='autosaveSwt' value='no'/> No 
+			</td>
+        </tr>
+        <tr style='line-height: 14px;border-bottom: 1pt dotted #777; display: contents;'>
+			<td style='padding:5px'>Autosave Interval: </td>
+			<td style='text-align: center; width: 180px;'>
+			<select title="Change Autosave Interval" id="autosaveInterval">
+				<option value="2">2 Sec</option>
+				<option value="5">5 Sec</option>
+				<option value="10">10 Sec</option>
+				<option value="15">15 Sec</option>
+				<option value="30">30 Sec</option>
+			</select>
+			</td>
+        </tr>
+        <tr>
+			<td style='padding:5px'></td>
+			<td style='text-align: center; width: 180px;'></td>
+        </tr>
+        </table>
+		<center>
+		<table>
+        <tr style='line-height: 14px;border-bottom: 1pt dotted #777;'>
+			<td style='text-align: center; width: 180px;'>
+				<h4 style='padding:5px'>Storage Usage: </h4>
+			</td>
+			<td style='text-align: center; width: 180px;'>
+				Used: <span id="usedStr"></span>
+			</td>
+			<td style='text-align: center; width: 180px;'>
+				Remaining: <span id="unusedStr"></span>
+			</td>
+			<td style='text-align: center; width: 180px;'>
+				<span id="percentStr"></span>
+			</td>
+        </tr>
+        <tr style='line-height: 14px;border-bottom: 1pt dotted #777;'>
+			<td colspan="4" style='text-align: center; width: 360px;'>
+				<meter style="width: 90%;margin-left: -35px;margin-top: 6px;" id="storageStat" value="" min="0" max="100"></meter>
+			</td>
+        </tr>
+		</table>
+		</center>
+        </br>
+		<script src="js/settings.js"></script>
+		<script src="js/aurna-lightbox.js"></script>
+		<script>
+
+		</script>
+
+</div>
+</body>
+</html>
