@@ -1,3 +1,8 @@
+//CHECK AUTOSAVE
+//CREATE SETTINGS WINDOW
+//COPY & PASTE
+//Add confirmation dialogue to clear text area
+
 //Set Vertical Orientation
 function SetVertical(){
 	document.getElementById('dividerDrag').remove();
@@ -93,9 +98,9 @@ function compile(){
 	document.getElementById('resultcont').srcdoc = code;
 	
 	//Set Iframe Title to Parent
-	var iFrame = document.getElementById('resultcont'); 
-	var iFrameDoc = iFrame.contentWindow.document || iFrame.contentDocument;
-	document.title = iFrameDoc.title;
+	//var iFrame = document.getElementById('resultcont'); 
+	//var iFrameDoc = iFrame.contentWindow.document || iFrame.contentDocument;
+	//document.title = iFrameDoc.title;
 	
 	//Get Textarea Data size in Byte
 	const textEncoder = new TextEncoder();
