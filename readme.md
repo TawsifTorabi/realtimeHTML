@@ -11,6 +11,7 @@ After 5 consecutive years, while looking through my Github repositories, I looke
 So I gave it another touch to be more user-friendly and come with more functionality. Features,  
 
 -   Autosave Feature
+-   Download code as HTML File
 -   Save Code at Browser Storage
 -   Demo Sample HTML Codes for Beginners
 -   Updated User-Interface
