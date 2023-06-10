@@ -1,9 +1,111 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 	<link href="css/style.css" rel="stylesheet" type="text/css"/>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 	<link rel="stylesheet" type="text/css" href="css/aurna-lightbox.css"/>
+	
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/codemirror.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/codemirror.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/mode/htmlmixed/htmlmixed.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/mode/xml/xml.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/mode/javascript/javascript.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/mode/css/css.min.js"></script>
+	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/theme/3024-day.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/theme/3024-night.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/theme/abbott.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/theme/abcdef.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/theme/ambiance.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/theme/ayu-dark.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/theme/ayu-mirage.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/theme/base16-dark.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/theme/bespin.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/theme/base16-light.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/theme/blackboard.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/theme/cobalt.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/theme/colorforth.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/theme/dracula.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/theme/duotone-dark.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/theme/duotone-light.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/theme/eclipse.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/theme/elegant.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/theme/erlang-dark.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/theme/gruvbox-dark.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/theme/hopscotch.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/theme/icecoder.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/theme/isotope.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/theme/juejin.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/theme/lesser-dark.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/theme/liquibyte.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/theme/lucario.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/theme/material.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/theme/material-darker.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/theme/material-palenight.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/theme/material-ocean.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/theme/mbo.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/theme/mdn-like.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/theme/midnight.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/theme/monokai.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/theme/moxer.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/theme/neat.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/theme/neo.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/theme/night.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/theme/nord.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/theme/oceanic-next.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/theme/panda-syntax.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/theme/paraiso-dark.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/theme/paraiso-light.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/theme/pastel-on-dark.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/theme/railscasts.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/theme/rubyblue.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/theme/seti.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/theme/shadowfox.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/theme/solarized.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/theme/the-matrix.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/theme/tomorrow-night-bright.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/theme/tomorrow-night-eighties.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/theme/ttcn.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/theme/twilight.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/theme/vibrant-ink.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/theme/xq-dark.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/theme/xq-light.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/theme/yeti.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/theme/idea.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/theme/darcula.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/theme/yonce.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/theme/zenburn.min.css">
+	<style>
+		.CodeMirror {
+			font-size: 16px;
+		}
+		.CodeMirror-wrap {
+		  height: 90vh; /* Set the desired height here */
+		}
+		.content {
+		  width: 100%;
+		  height: 100%;
+		  display: flex;
+		  justify-items: center;
+		  align-items: center;
+		}
+		.split {
+		  width:100%;
+		  height:100%;
+		  padding: 10px;
+		  border: 1px solid;
+		}
+		.gutter {
+		  cursor: e-resize;
+		  height: 100%;
+		  background: grey;
+		}
+		body {
+			height: 91vh;
+		}
+	</style>
 	<title>Real Time html Editor</title>
 	<meta charset="utf-8">
 </head>
@@ -18,8 +120,6 @@
 		</button>
 		<button class="buttonSt" onclick="reset();" title="Clear Editor Area"><i class="fa-solid fa-trash-can-arrow-up"></i></button>
 		<button class="buttonSt" onclick="SwitchArrangement();" title="Toggle Vertical & Horizontal Panels" id="arrangeBtn"><i class="fa-solid fa-grip-vertical"></i></button>
-		<input class="buttonSt" style="height: 32px;" type="color" value="#FCED98" title="Change Background Color" onchange="bgcolor(this.value);"/>
-		<input class="buttonSt" style="height: 32px;" type="color" value="#804000" title="Change Text Color" onchange="txtcolor(this.value);"/>
 		<select class="buttonSt" title="Change Text Font" onchange="font(this.value)">
 			<option value="Courier">Courier</option>
 			<option value="Arial">Arial</option>
@@ -36,6 +136,75 @@
 			<option value="18px">18</option>
 			<option value="21px">21</option>
 			<option value="24px">24</option>
+		</select>
+		
+	
+		<select class="buttonSt" title="Change Theme"onchange="selectTheme()" id="select">
+			<option selected="">default</option>
+			<option>3024-day</option>
+			<option>3024-night</option>
+			<option>abbott</option>
+			<option>abcdef</option>
+			<option>ambiance</option>
+			<option>ayu-dark</option>
+			<option>ayu-mirage</option>
+			<option>base16-dark</option>
+			<option>base16-light</option>
+			<option>bespin</option>
+			<option>blackboard</option>
+			<option>cobalt</option>
+			<option>colorforth</option>
+			<option>darcula</option>
+			<option>dracula</option>
+			<option>duotone-dark</option>
+			<option>duotone-light</option>
+			<option>eclipse</option>
+			<option>elegant</option>
+			<option>erlang-dark</option>
+			<option>gruvbox-dark</option>
+			<option>hopscotch</option>
+			<option>icecoder</option>
+			<option>idea</option>
+			<option>isotope</option>
+			<option>juejin</option>
+			<option>lesser-dark</option>
+			<option>liquibyte</option>
+			<option>lucario</option>
+			<option>material</option>
+			<option>material-darker</option>
+			<option>material-palenight</option>
+			<option>material-ocean</option>
+			<option>mbo</option>
+			<option>mdn-like</option>
+			<option>midnight</option>
+			<option>monokai</option>
+			<option>moxer</option>
+			<option>neat</option>
+			<option>neo</option>
+			<option>night</option>
+			<option>nord</option>
+			<option>oceanic-next</option>
+			<option>panda-syntax</option>
+			<option>paraiso-dark</option>
+			<option>paraiso-light</option>
+			<option>pastel-on-dark</option>
+			<option>railscasts</option>
+			<option>rubyblue</option>
+			<option>seti</option>
+			<option>shadowfox</option>
+			<option>solarized dark</option>
+			<option>solarized light</option>
+			<option>the-matrix</option>
+			<option>tomorrow-night-bright</option>
+			<option>tomorrow-night-eighties</option>
+			<option>ttcn</option>
+			<option>twilight</option>
+			<option>vibrant-ink</option>
+			<option>xq-dark</option>
+			<option>xq-light</option>
+			<option>yeti</option>
+			<option>yonce</option>
+			<option>zenburn</option>
 		</select>
 		<button class="buttonSt" title="Settings" onclick="aurnaIframe('settings.html');"><i class="fa-solid fa-gear"></i></button>
 	</div>
@@ -58,47 +227,124 @@
 </br>
 </br>
 
-<textarea 
-	placeholder="Start Writing Your HTML Code here..." 
-	style="
-			font-family: courier; 
-			font-size: 14px; 
-			display: inline-block; 
-			width: 99.49%; 
-			height: 255px; 
-			color: rgb(128, 64, 0); 
-			background-color: rgb(252, 237, 152); 
-			resize: none; 
-			margin-right: 5px;
-			min-width: 11px;			
+
+
+	
+	
+	
+	<div class="content">
+		<div class="split a" id="editorContainer" style="display: inline-block">
+			<textarea 
+			placeholder="Start Writing Your HTML Code here..." 
+			style="
+					font-family: courier; 
+					font-size: 14px; 
+					width: 99.49%; 
+					height: 2000px; 
+					margin-right: 5px;
+		" 
+			id="codewriter" 
+			onkeyup="compile();"
+			spellcheck="false">
+			</textarea>
+		</div>
+		<div class="split b" id="iframecontainer">
+			<iframe style="
+			display: inline-block;
+			height: 90vh; 
+			width: 100%; 
 			min-height: 10px; 
-			max-height: 500px;
-			max-width: 97%;
-" 
-	id="codewriter" 
-	onkeyup="compile();"
-	spellcheck="false">
-<html>  
-<head> 
-<title>Real Time HTML Editor</title> 
-</head>
-<body>
-<h3>Welcome to the real-time HTML editor!</h3> 
-<p>Type HTML in the textarea above, and it will magically appear in the frame below.</p> 
-</body>
-</html>
-	</textarea>
-	<span id="resizerContainer"><hr id="dividerDrag" class="dividerHorizontal"/></span>
-	<iframe style="
-	display: inline-block;
-	height: 271px; 
-	width: 100%; 
-	min-height: 10px; 
-	min-width: 11px; 
-	margin-left: 0px; 
-	max-height: 550px;
-	max-width: 100%;" 
-	id="resultcont" srcdoc=""></iframe>
+			min-width: 11px; 
+			margin-left: 0px; " 
+			id="resultcont" srcdoc=""></iframe>
+		</div>
+	</div>
+	
+	
+	
+		
+			
+
+	<script>
+		var myTextarea = document.getElementById("codewriter");
+
+		// Initialize CodeMirror instance
+		var editor = CodeMirror.fromTextArea(myTextarea, {
+		  mode: "htmlmixed",
+		  lineNumbers: true,
+		  theme: "default",
+		  lineWrapping: true
+		});
+
+		// Set initial content
+		editor.setValue('');
+		
+		editor.on("keyup", function (cm, event) {
+		  compile();
+		});
+		
+		// Get the content of the editor
+		var code = editor.getValue();
+		console.log(code);
+		
+		function changeFontSize(){
+			// Retrieve elements with the specified class name
+			var elements = document.getElementsByClassName("CodeMirror");
+
+			// Iterate through the elements and change the font size
+			for (var i = 0; i < elements.length; i++) {
+				elements[i].style.fontSize = "17px"; // Set the desired font size
+			}
+		}
+
+	  var input = document.getElementById("select");
+	  function selectTheme() {
+		var theme = input.options[input.selectedIndex].textContent;
+		editor.setOption("theme", theme);
+		location.hash = "#" + theme;
+	  }
+	  var choice = (location.hash && location.hash.slice(1)) ||
+				   (document.location.search &&
+					decodeURIComponent(document.location.search.slice(1)));
+	  if (choice) {
+		input.value = choice;
+		editor.setOption("theme", choice);
+	  }
+	  CodeMirror.on(window, "hashchange", function() {
+		var theme = location.hash.slice(1);
+		if (theme) { input.value = theme; selectTheme(); }
+	  });
+	</script>
+	
+	<script src="https://unpkg.com/split.js/dist/split.min.js"></script>
+	<script>
+	  var splitInstance = Split(['.a', '.b'], {
+		gutterSize: 5,
+		sizes: [50, 50],
+		direction: 'horizontal' // Initial orientation
+	  });
+
+	  var currentDirection = 'horizontal';
+	  var splitContent = document.querySelector('.content').innerHTML;
+
+	  function toggleOrientation() {
+		var container = document.querySelector('.content');
+		container.innerHTML = splitContent;
+		if (currentDirection === 'horizontal') {
+		  splitInstance = Split(['.a', '.b'], {
+			direction: 'vertical',
+			sizes: [20, 80]
+		  });
+		  currentDirection = 'vertical';
+		} else {
+		  splitInstance = Split(['.a', '.b'], {
+			direction: 'horizontal',
+			sizes: [20, 80]
+		  });
+		  currentDirection = 'horizontal';
+		}
+	  }
+	</script>
 	<script src="js/script.js"></script>
 	<script>
 		compile();
