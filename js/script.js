@@ -1,56 +1,15 @@
 //Set Vertical Orientation
 function SetVertical(){
-	document.getElementById('dividerDrag').remove();
-	const verElem = document.createElement('hr');
-	verElem.id = 'dividerDrag';
-	verElem.classList.add('dividerVertical');
-	document.getElementById('resizerContainer').appendChild(verElem);
-	document.getElementById('dividerDrag').addEventListener('mousedown', initDrag, false);
-	
-	var editor = document.getElementById('codewriter');
-	var result = document.getElementById('resultcont');
-	
-	editor.style.width = '48%';
-	//editor.style.display = 'inline-block';
-	editor.style.height = '548px';
-	editor.style.maxHeight = '548px';
-	editor.style.maxWidth = '95%';
-	
-	result.style.width = '49%';
-	//result.style.display = 'inline-block';
-	result.style.height = '550px';
-	result.style.maxHeight = '550px';
-	result.style.maxWidth = '95%';
-	
-	//document.getElementById('resizerContainer').innerHTML = '<hr id="dividerDrag" class="dividerHorizontal"/>';
+
 }
 
 
 //Set Horizontal Orientation
 function SetHorizontal(){
-	document.getElementById('dividerDrag').remove();
-	const horElem = document.createElement('hr');
-	horElem.id = 'dividerDrag';
-	horElem.classList.add('dividerHorizontal');
-	document.getElementById('resizerContainer').appendChild(horElem);
-	document.getElementById('dividerDrag').addEventListener('mousedown', initDrag, false);
-	
-	var editor = document.getElementById('codewriter');
-	var result = document.getElementById('resultcont');
-	editor.style.width = '99%';
-	//editor.style.display = 'inline-block';
-	editor.style.height = '242px';
-	editor.style.maxHeight = '500px';
-	editor.style.maxWidth = '100%';
-	
-	result.style.width = '100%';
-	//result.style.display = 'inline-block';
-	result.style.height = '280px';
-	result.style.maxHeight = '500px';
-	result.style.maxWidth = '100%';
-	
-	//document.getElementById('resizerContainer').innerHTML = '<hr id="dividerDrag" class="dividerHorizontal"/>';
+
 }
+
+
 
 //Get Arrangement Style From LocalStorage
 function SetArrangement(){
@@ -86,10 +45,16 @@ function SwitchArrangement(){
 }
 
 
+
+
+
+
+
 //Compiles everything while user is typing
 function compile(){
 	//Send Code to Iframe
-	let code = document.getElementById('codewriter').value;
+	//let code = document.getElementById('codewriter').value;
+	let code = editor.getValue();
 	document.getElementById('resultcont').srcdoc = code;
 	
 	//Set Iframe Title to Parent
@@ -104,23 +69,28 @@ function compile(){
 	//Line Counter
 	let count = 0;
 	const a = document.getElementById('codewriter');
-	for (let i = 0; i < a.value.length; i++) {
-		if (a.value[i] == '\n') {
+	for (let i = 0; i < code.length; i++) {
+		if (code[i] == '\n') {
 		  count++;
 		}
 	}
 	document.getElementById('linecount').innerHTML =  count+" Lines";
-	//notificator('Typing...', true);
-	
+	//notificator('Typing...', true);	
 }
 
 
 var SavedCode = localStorage.getItem("realtimeHTML_code");
 if(localStorage.getItem("realtimeHTML_codeAvailable") == 'true'){
-	document.getElementById('codewriter').innerHTML = SavedCode;
+	editor.setValue(SavedCode);
 	notificator('Code from previous session loaded!', false);
 	//console.log('Code Loaded!');
 }
+
+
+
+
+
+
 
 var intervalId01;
 autosaveInit();
@@ -133,7 +103,7 @@ function autosaveInit(){
 			var autosaveInterval = autosaveData.split('-')[1];
 			if(autosaveInterval != '0'){
 				intervalId01 = window.setInterval(function(){
-					SaveLocal(document.getElementById('codewriter').value);
+					SaveLocal(editor.getValue());
 				}, autosaveInterval);
 			}
 		}
@@ -165,6 +135,15 @@ function stopAutosave(){
 	clearInterval(intervalId01);
 }
 
+
+
+
+
+
+
+
+
+
 //Notificator
 function notificator(txt, bool){
 	let elem = document.getElementById('notificationText');
@@ -177,31 +156,46 @@ function notificator(txt, bool){
 
 
 
+
+
+
+
 function reset(){
 	document.getElementById('codewriter').value = '';
+	editor.setValue('');
 	compile();
 	notificator('Everything Got Reset!', false);
 }
 
 function font(name){
-	document.getElementById('codewriter').style.fontFamily = name;
+
+	// Retrieve elements with the specified class name
+	var elements = document.getElementsByClassName("CodeMirror");
+
+	// Iterate through the elements and change the font size
+	for (var i = 0; i < elements.length; i++) {
+	  elements[i].style.fontFamily = name; // Set the desired font size
+	}
 	notificator('Editor Font Switched to '+name, true);
+	
 }
+
 function fontsize(size){
-	document.getElementById('codewriter').style.fontSize = size;
+	// Retrieve elements with the specified class name
+	var elements = document.getElementsByClassName("CodeMirror");
+
+	// Iterate through the elements and change the font size
+	for (var i = 0; i < elements.length; i++) {
+	  elements[i].style.fontSize = size; // Set the desired font size
+	}
 	notificator('Font Size Set to '+size, true);
 }
-function  bgcolor(color){
-	document.getElementById('codewriter').style.backgroundColor = color;
-}
-function  txtcolor(color){
-	document.getElementById('codewriter').style.color = color;
-}
+
 
 
 //Download HTML File
 function downloadFile() {
-	var textdata = document.getElementById('codewriter').value; 
+	var textdata = editor.getValue(); 
 	var file = new Blob([textdata], {type: 'text/html'});
 	var a = document.createElement("a");
 	a.style.display = "none";
@@ -213,49 +207,38 @@ function downloadFile() {
 }
 
 
-//Enable Tabbing on Textarea
-document.addEventListener('keydown', (e) => {
-    if (e.code === 'Tab') {
-        e.preventDefault();
-
-        const TAB_WIDTH = 4;
-
-        //* Apply 1 space for every tab width
-        document.execCommand('insertText', false, ' '.repeat(TAB_WIDTH));
-    }
-});
-
-
 //Show or Hide Editor
 function hide(){
-	let editor = document.getElementById('codewriter');
+	let editor = document.getElementById('editorContainer');
 	let result = document.getElementById('resultcont');
-	let resizer = document.getElementById('resizerContainer');
 	let Arrangement = localStorage.getItem('realtimeHTML_Arrangement');
 	
     if(editor.style.display == "inline-block"){
-		resizer.style.display = "none";
+		//Hide Editor
 		editor.style.display = "none";
+		document.getElementsByClassName('gutter')[0].style.display = 'none';
 		document.getElementById('hideshownotifier').innerHTML = '<i class="fa-regular fa-pen-to-square"></i>';
+		document.getElementById('iframecontainer').style.width = '110%';
 		if(Arrangement == 'vertical'){
 			result.style.width = "99%";
 			result.style.maxWidth = "99%";
 		}
 		if(Arrangement == 'horizontal'){
-			result.style.height = "530px";
-			result.style.maxHeight = "530px";
+			result.style.height = "90vh";
+			result.style.maxHeight = "90vh";
 		}	
 		notificator('Editor is Hidden!', false);
 	}else{
-		resizer.style.removeProperty("display");
+		//Show Editor
 		editor.style.display = "inline-block";
+		document.getElementsByClassName('gutter')[0].style.display = 'inherit';
 		document.getElementById('hideshownotifier').innerHTML = '<i class="fa-solid fa-pen-to-square"></i>';	
+		document.getElementById('iframecontainer').style.width = 'calc(50% - 2.5px)';
 		if(Arrangement == 'vertical'){
-			result.style.width = "48%";
-			result.style.removeProperty("max-width");
+			result.style.width = "99%";
 		}
 		if(Arrangement == 'horizontal'){
-			result.style.height = "280px";
+			result.style.height = "45vh";
 		}
 		notificator('Editor back to normal!', false);
 	}
@@ -291,7 +274,7 @@ function loadDemo(filename){
 	xmlhttpFile.onreadystatechange = function() {
 		if(this.readyState == 4 && this.status == 200) {
 			var data = this.responseText;
-			document.getElementById('codewriter').value = data;
+			editor.setValue(data);
 			compile();
 		}
 	};
@@ -300,76 +283,6 @@ function loadDemo(filename){
 	notificator('Demo File Loaded!', false);
 }
 	
-
-
-
-
-
-var resizer = document.getElementById('dividerDrag');
-resizer.addEventListener('mousedown', initDrag, false);
-var startX, startY, startWidth, startHeight, startWidth2, startHeight2;
-
-var editor = document.getElementById('codewriter');
-var viewer = document.getElementById('resultcont');
-
-function initDrag(e) {
-	startX = e.clientX;
-	startY = e.clientY;
-
-	startWidth = parseInt(document.defaultView.getComputedStyle(editor).width, 10);
-	startHeight = parseInt(document.defaultView.getComputedStyle(editor).height, 10);
-
-	startWidth2 = parseInt(document.defaultView.getComputedStyle(viewer).width, 10);
-	startHeight2 = parseInt(document.defaultView.getComputedStyle(viewer).height, 10);
-
-	var IOArrangement = localStorage.getItem('realtimeHTML_Arrangement');
-	if(IOArrangement == 'horizontal'){
-	   document.documentElement.addEventListener('mousemove', doDragHorizontal, false);
-	}
-	if(IOArrangement == 'vertical'){
-	   document.documentElement.addEventListener('mousemove', doDragVertical, false);
-	}
-	if(IOArrangement == null){
-	   document.documentElement.addEventListener('mousemove', doDragHorizontal, false);
-	}
-	
-	document.documentElement.addEventListener('mouseup', stopDrag, false);
-}
-
-function doDragHorizontal(e) {
-	if(parseInt(editor.style.height) >= 10){
-		editor.style.height = (startHeight + e.clientY - startY) + 'px';
-		viewer.style.height = (startHeight2 - e.clientY + startY) + 'px';
-	}else{
-		editor.style.height = (parseInt(editor.style.height)+1) + 'px';
-		viewer.style.height = (parseInt(viewer.style.height)+1) + 'px';
-	}
-}
-
-function doDragVertical(e) {
-	if(parseInt(editor.style.width) >= 10){
-		editor.style.width = (startWidth + e.clientX - startX) + 'px';
-		viewer.style.width = (startWidth2 - e.clientX + startX) + 'px';
-	}else{
-		editor.style.width = (parseInt(editor.style.width)+1) + 'px';
-		viewer.style.width = (parseInt(viewer.style.width)+1) + 'px';
-	}
-}
-
-
-
-
-function stopDrag(e) {
-	var IOArrangement = localStorage.getItem('realtimeHTML_Arrangement');
-	if(IOArrangement == 'horizontal'){
-	   document.documentElement.removeEventListener('mousemove', doDragHorizontal, false);
-	}
-	if(IOArrangement == 'vertical'){
-	   document.documentElement.removeEventListener('mousemove', doDragVertical, false);
-	}   
-	document.documentElement.removeEventListener('mouseup', stopDrag, false);
-}
-
 
 
 //Byte Size Formatter
