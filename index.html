@@ -300,8 +300,18 @@
 	  var input = document.getElementById("select");
 	  function selectTheme() {
 		var theme = input.options[input.selectedIndex].textContent;
+		localStorage.setItem("realtimeHTML_editorTheme",theme);
 		editor.setOption("theme", theme);
 		location.hash = "#" + theme;
+	  }
+
+	  function LoadTheme(){
+		var theme;
+	  	if(localStorage.getItem("realtimeHTML_editorTheme") != ''){
+			theme = localStorage.getItem("realtimeHTML_editorTheme");
+			location.hash = "#" + theme;
+			editor.setOption("theme", theme);
+		}
 	  }
 	  var choice = (location.hash && location.hash.slice(1)) ||
 				   (document.location.search &&
@@ -348,6 +358,7 @@
 	<script src="js/script.js"></script>
 	<script>
 		compile();
+		LoadTheme();
 	</script>
 	<script src="js/aurna-lightbox.js"></script>
 </body>
