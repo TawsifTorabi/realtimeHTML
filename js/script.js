@@ -1,12 +1,91 @@
+var splitInstance;
 //Set Vertical Orientation
 function SetVertical(){
 
+	console.log('vertical settt');
+	// Remove Old Gutters
+	var gutters = document.getElementsByClassName("gutter");
+
+	// Iterate through the elements and remove
+	for (var i = 0; i < gutters.length; i++) {
+	  gutters[i].remove(); // Set the desired font size
+	}
+
+	//let container = document.querySelector('.content');
+	//let splitContent = document.querySelector('.content').innerHTML;
+    //container.innerHTML = splitContent;
+	splitInstance = Split(['.a', '.b'], {
+		gutterSize: 5,
+		direction: 'vertical',
+		sizes: [50, 43]
+	});
+	
+	// Retrieve elements with the specified class name
+	var gutter = document.getElementsByClassName("gutter")[0];
+	gutter.style.cursor = "s-resize"; // Set the desired font size
+
+
+	// Retrieve elements with the specified class name
+	var content = document.getElementsByClassName("content")[0];
+	content.style.display = "inline"; // Set the desired font size
+
+
+
+
+	// Retrieve elements with the specified class name
+	var elements = document.getElementsByClassName("split");
+
+	// Iterate through the elements and change the font size
+	for (var i = 0; i < elements.length; i++) {
+	  elements[i].style.height = "45%"; // Set the desired font size
+	  elements[i].style.width = ""; // Set the desired font size
+	}	
+	//editorContainer.style.height = '';
+	
 }
 
 
 //Set Horizontal Orientation
 function SetHorizontal(){
+	console.log('horizontal settt');
+	// Remove Old Gutters
+	var gutters = document.getElementsByClassName("gutter");
 
+	// Iterate through the elements and remove
+	for (var i = 0; i < gutters.length; i++) {
+	  gutters[i].remove(); // Set the desired font size
+	}
+
+	//let container = document.querySelector('.content');
+	//let splitContent = document.querySelector('.content').innerHTML;
+	//container.innerHTML = splitContent;
+	splitInstance = Split(['.a', '.b'], {
+		gutterSize: 5,
+		direction: 'horizontal',
+		sizes: [50, 50]
+	});
+	
+	
+	// Retrieve elements with the specified class name
+	var gutter = document.getElementsByClassName("gutter")[0];
+	gutter.style.cursor = "e-resize"; // Set the desired font size
+
+
+	// Retrieve elements with the specified class name
+	var content = document.getElementsByClassName("content")[0];
+	content.style.display = "flex"; // Set the desired font size
+	
+	
+	// Retrieve elements with the specified class name
+	var elements = document.getElementsByClassName("split");
+
+	// Iterate through the elements and change the font size
+	for (var i = 0; i < elements.length; i++) {
+	  elements[i].style.width = ""; // Set the desired font size
+	  elements[i].style.height = "98%";
+	  
+	}	
+	//editorContainer.style.height = '';
 }
 
 
@@ -19,12 +98,20 @@ function SetArrangement(){
 		notificator('Switched Vertical Interface!', true);
 		SetVertical();
 	}
+	
 	if(Arrangement == 'horizontal'){
 		document.getElementById('arrangeBtn').innerHTML = '<i class="fa-solid fa-grip"></i>';
 		notificator('Switched Horizontal Interface!', true);
 		SetHorizontal();
+	}
+
+	if(Arrangement == ''){
+		document.getElementById('arrangeBtn').innerHTML = '<i class="fa-solid fa-grip"></i>';
+		//SetHorizontal();
+		SetVertical();
 	}	
 };
+
 SetArrangement();
 
 //Switches Arrangement Style
@@ -205,7 +292,26 @@ function downloadFile() {
 	a.remove();
 	notificator('File Downloaded!', true);
 }
-
+var outputStyle;
+//fullscreen output
+function fullscreen(){
+	outputStyle = document.getElementById('iframecontainer').style;
+	document.getElementById('iframecontainer').style = `
+			/*display: none;*/
+			position: fixed;
+			top: 0px;
+			bottom: 0px;
+			right: 0px;
+			width: 100%;
+			border: none;
+			margin: 0;
+			padding: 0;
+			overflow: hidden;
+			z-index: 999999;
+			height: 100%;
+		  `;
+	closeBtn.style.display = "inherit";
+}
 
 //Show or Hide Editor
 function hide(){
@@ -218,7 +324,7 @@ function hide(){
 		editor.style.display = "none";
 		document.getElementsByClassName('gutter')[0].style.display = 'none';
 		document.getElementById('hideshownotifier').innerHTML = '<i class="fa-regular fa-pen-to-square"></i>';
-		document.getElementById('iframecontainer').style.width = '110%';
+		//document.getElementById('iframecontainer').style.width = '110%';
 		if(Arrangement == 'vertical'){
 			result.style.width = "99%";
 			result.style.maxWidth = "99%";
@@ -238,7 +344,7 @@ function hide(){
 			result.style.width = "99%";
 		}
 		if(Arrangement == 'horizontal'){
-			result.style.height = "45vh";
+			result.style.height = "90vh";
 		}
 		notificator('Editor back to normal!', false);
 	}
