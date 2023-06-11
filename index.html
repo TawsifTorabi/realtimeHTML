@@ -82,7 +82,7 @@
 			font-size: 16px;
 		}
 		.CodeMirror-wrap {
-		  height: 90vh; /* Set the desired height here */
+		  height: 100%; /* Set the desired height here */
 		}
 		.content {
 		  width: 100%;
@@ -92,10 +92,11 @@
 		  align-items: center;
 		}
 		.split {
-		  width:100%;
-		  height:100%;
+		  width:99%;
+		  height:98%;
 		  padding: 10px;
 		  border: 1px solid;
+		  overflow: hidden;
 		}
 		.gutter {
 		  cursor: e-resize;
@@ -115,6 +116,7 @@
 	<span class="headerText">RealTime HTML</span>			
 	<a href="https://tawsiftorabi.github.io"><small class="headerTextSmall">by Tawsif Torabi</small></a>
 	<div class="toplinkscontainer">
+		<button class="buttonSt" onclick="fullscreen();" title="Full Screen Output"><i class="fa-solid fa-arrow-up-right-from-square"></i></button>
 		<button class="buttonSt" onclick="hide()" title="Show or Hide Editor Area">
 			<span id="hideshownotifier"><i class="fa-solid fa-pen-to-square"></i></span>
 		</button>
@@ -227,9 +229,32 @@
 </br>
 </br>
 
-
-
-	
+<style>
+	#closeBtn {
+		display: none;
+		position: fixed;
+		top: 14px;
+		bottom: 0px;
+		right: 27px;
+		border: none;
+		z-index: 9999999;
+		height: 36px;
+		font-size: 35px;
+	}
+</style>
+<button id="closeBtn" class="buttonSt" onclick="closeFrame()">&times;</button>
+<script>
+	var closeBtn = document.getElementById("closeBtn");
+	function closeFrame(){
+		document.getElementById('iframecontainer').style = outputStyle;
+		closeBtn.style.display = "none";  
+	}
+	document.addEventListener('keydown', function(event) {
+		if (event.key === 'Escape') {
+		  closeFrame();
+		}
+	});
+</script>	
 	
 	
 	<div class="content">
@@ -251,11 +276,12 @@
 		<div class="split b" id="iframecontainer">
 			<iframe style="
 			display: inline-block;
-			height: 90vh; 
+			height: 100%; 
 			width: 100%; 
 			min-height: 10px; 
 			min-width: 11px; 
-			margin-left: 0px; " 
+			margin-left: 0px;
+			background: white;" 
 			id="resultcont" srcdoc=""></iframe>
 		</div>
 	</div>
@@ -327,34 +353,6 @@
 	</script>
 	
 	<script src="https://unpkg.com/split.js/dist/split.min.js"></script>
-	<script>
-	  var splitInstance = Split(['.a', '.b'], {
-		gutterSize: 5,
-		sizes: [50, 50],
-		direction: 'horizontal' // Initial orientation
-	  });
-
-	  var currentDirection = 'horizontal';
-	  var splitContent = document.querySelector('.content').innerHTML;
-
-	  function toggleOrientation() {
-		var container = document.querySelector('.content');
-		container.innerHTML = splitContent;
-		if (currentDirection === 'horizontal') {
-		  splitInstance = Split(['.a', '.b'], {
-			direction: 'vertical',
-			sizes: [20, 80]
-		  });
-		  currentDirection = 'vertical';
-		} else {
-		  splitInstance = Split(['.a', '.b'], {
-			direction: 'horizontal',
-			sizes: [20, 80]
-		  });
-		  currentDirection = 'horizontal';
-		}
-	  }
-	</script>
 	<script src="js/script.js"></script>
 	<script>
 		compile();
