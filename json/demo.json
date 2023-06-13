@@ -48,5 +48,10 @@
   "name": "CSS Table Design",
   "author": "Tawsif Torabi",
   "file": "CSSTableDesign.html"
+ },
+ {
+  "name": "Meeting Agenda HTML",
+  "author": "Tawsif Torabi",
+  "file": "meeting_agenda.html"
  }
 ]
