@@ -23,4 +23,3 @@ So I gave it another touch to be more user-friendly and come with more functiona
 - COPY & PASTE Button
 - Add confirmation dialogue to clear textarea
 - Save Multiple HTML Files on local storage
-- Syntax Highlighting
