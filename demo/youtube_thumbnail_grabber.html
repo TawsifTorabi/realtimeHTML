@@ -1,0 +1,22 @@
+<h4>Youtube Thumbnail Grabber</h4>
+<input type="url" id="url" onkeyup="load()" />
+<img id="img" />
+
+<script>
+  function load() {
+    var url = document.getElementById('url').value;
+    var videoId = extractVideoId(url);
+    var imageUrl = 'https://img.youtube.com/vi/' + videoId + '/maxresdefault.jpg';
+    document.getElementById('img').src = imageUrl;
+  }
+
+  function extractVideoId(url) {
+    var videoId = '';
+    var regex = /[?&]v=([^&#]*)/i;
+    var match = url.match(regex);
+    if (match && match[1]) {
+      videoId = match[1];
+    }
+    return videoId;
+  }
+</script>
