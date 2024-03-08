@@ -1,5 +1,10 @@
 [
  {
+  "name": "Retro Loading Bar".
+  "author": "Tawsif Torabi",
+  "file": "retro_loading_bar.html"
+ }
+ {
   "name": "Class TimeTable",
   "author": "dia2git",
   "file": "class_timetable.html"
