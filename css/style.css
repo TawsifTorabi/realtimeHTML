@@ -1,9 +1,12 @@
+
 body {
     display: block;
     margin: 8px;
 	font-family: Trebuchet MS;
 	height: 100%;
 }
+
+
 
 p {  height: 200px; width: 300px; overflow: hidden;}
 p.resizable { background: cyan; position: relative; }

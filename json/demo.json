@@ -5,6 +5,16 @@
   "file": "retro_loading_bar.html"
  },
  {
+  "name": "Github Repository List API",
+  "author": "Tawsif Torabi",
+  "file": "GithubRepoSearch.html"
+ },
+ {
+  "name": "Matrix Text Javascript",
+  "author": "Tawsif Torabi",
+  "file": "MatrixText.html"
+ },
+ {
   "name": "Class TimeTable",
   "author": "dia2git",
   "file": "class_timetable.html"
