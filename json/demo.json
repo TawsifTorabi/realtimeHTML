@@ -5,6 +5,11 @@
   "file": "retro_loading_bar.html"
  },
  {
+  "name": "Multiple Image Upload with Preview and Edit",
+  "author": "Tawsif Torabi",
+  "file": "MultipleFileUploadPreview.html"
+ },
+ {
   "name": "Github Repository List API",
   "author": "Tawsif Torabi",
   "file": "GithubRepoSearch.html"
