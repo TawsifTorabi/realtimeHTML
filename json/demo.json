@@ -5,6 +5,11 @@
   "file": "retro_loading_bar.html"
  },
  {
+  "name": "HTML Canvas Invoice",
+  "author": "Tawsif Torabi",
+  "file": "CanvasInvoice.html"
+ },
+ {
   "name": "Multiple Image Upload with Preview and Edit",
   "author": "Tawsif Torabi",
   "file": "MultipleFileUploadPreview.html"
